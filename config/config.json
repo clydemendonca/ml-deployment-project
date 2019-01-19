@@ -1,0 +1,11 @@
+{
+    "app" : {
+        "port": 5000,
+        "data" : {
+            "filename" : "cancer.csv"
+        },
+        "model" : {
+            "filename" : "model.pkl"
+        }
+    }
+}
