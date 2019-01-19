@@ -1,3 +1,4 @@
+"""Flask App."""
 import flask
 import json
 from flask import Flask
@@ -10,6 +11,7 @@ app = Flask(__name__)
 
 @app.route('/train', methods=['GET'])
 def train_model():
+    """API to create a model in /models directory."""
     train = Train()
     train.build_model()
     return "Model is created"
@@ -17,7 +19,7 @@ def train_model():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-
+    """API to predict the type of cancer for given parameters."""
     body_params = dict(request.json)
 
     clump_thickness = body_params['clump_thickness']
@@ -33,8 +35,15 @@ def predict():
     test = Test()
     test.load_model()
     prediction = test.predict(
-        clump_thickness, unif_cell_size	, unif_cell_shape, marg_adhesion,
-        single_epith_cell_size,	bare_nuclei, bland_chrom, norm_nucleoli, mitoses
+        clump_thickness,
+        unif_cell_size,
+        unif_cell_shape,
+        marg_adhesion,
+        single_epith_cell_size,
+        bare_nuclei,
+        bland_chrom,
+        norm_nucleoli,
+        mitoses
     )
 
     print(prediction)
