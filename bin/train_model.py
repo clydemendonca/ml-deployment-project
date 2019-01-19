@@ -21,4 +21,4 @@ class Train:
         model = LogisticRegression()
         model.fit(X, y)
 
-        pickle.dump(model, open(self.model_filename, 'wb'))
+        pickle.dump(model, open('./models/' + self.model_filename, 'wb'))
